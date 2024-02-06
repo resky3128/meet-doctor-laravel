@@ -17,9 +17,9 @@ class CreateDetailUserTable extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->index('fk_detail_user_to_users');
             $table->foreignId('type_user_id')->nullable()->index('fk_detail_user_to_type_user');
-            $table->string('contact');
+            $table->string('contact')->nullable();
             $table->longText('address')->nullable();
-            $table->longText('photo');
+            $table->longText('photo')->nullable();
             $table->enum('gender', [1,2])->nullable();
             $table->timestamps();
             $table->softDeletes();
