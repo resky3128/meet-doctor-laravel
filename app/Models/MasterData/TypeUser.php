@@ -11,7 +11,7 @@ class TypeUser extends Model
     //use HasFactory;
     use SoftDeletes;
 
-    public $table = 'detail_user';
+    public $table = 'type_user';
 
     protected $dates =[
         'created_at',
@@ -20,12 +20,7 @@ class TypeUser extends Model
     ]
 
     protected $filllable = [
-        'user_id',
-        'type_user_id',
-        'contact',
-        'address',
-        'photo',
-        'gender',
+        'name',
         'created_at',
         'updated_at',
         'deleted_at'
