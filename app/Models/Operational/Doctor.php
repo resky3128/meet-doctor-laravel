@@ -18,9 +18,9 @@ class Doctor extends Model
         'created_at',
         'updated_at',
         'deleted_at',
-    ]
+    ];
 
-    protected $filllable = [
+    protected $fillable = [
         'specialist_id',
         'name',
         'fee',
@@ -29,4 +29,12 @@ class Doctor extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function specialist(){
+        return $this->belongsTo('App\Models\MasterData\Specialist', 'specialist_id', 'id');
+    }
+
+    public function appointment(){
+        return $this->hasMany('App\Models\Operational\Appointment', 'doctor_id');
+    }
 }

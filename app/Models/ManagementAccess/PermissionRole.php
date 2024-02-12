@@ -18,13 +18,21 @@ class PermissionRole extends Model
         'created_at',
         'updated_at',
         'deleted_at'
-    ]
+    ];
 
-    protected $filllable = [
+    protected $fillable = [
         'permission_id',
         'role_id',
         'created_at',
         'updated_at',
         'deleted_at'
     ];
+
+    public function permission(){
+        return $this->belongsTo('App\Models\ManagementAccess\Permission', 'permission_id', 'id');
+    }
+
+    public function role(){
+        return $this->belongsTo('App\Models\ManagementAccess\Role', 'role_id', 'id');
+    }
 }

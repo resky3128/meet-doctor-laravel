@@ -18,9 +18,9 @@ class Transaction extends Model
         'created_at',
         'updated_at',
         'deleted_at',
-    ]
+    ];
 
-    protected $filllable = [
+    protected $fillable = [
         'appointment_id',
         'fee_doctor',
         'fee_specialist',
@@ -32,5 +32,9 @@ class Transaction extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function appointment(){
+        return $this->belongsTo('App\Models\Operational\Appointment', 'appointment_id', 'id');
+    }
     
 }

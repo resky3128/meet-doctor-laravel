@@ -17,12 +17,16 @@ class Permission extends Model
         'created_at',
         'updated_at',
         'deleted_at',
-    ]
+    ];
 
-    protected $filllable = [
+    protected $fillable = [
         'title',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
+
+    public function permission_role(){
+        return $this->hasMany('App\Models\ManagementAccess\PermissionRole', 'permission');
+    }
 }

@@ -17,12 +17,20 @@ class Role extends Model
         'created_at',
         'updated_at',
         'deleted_at',
-    ]
+    ];
 
-    protected $filllable = [
+    protected $fillable = [
         'title',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
+
+    public function role_user(){
+        return $this->hasMany('App\Models\ManagementAccess\RoleUser', 'role_id');
+    }
+
+    public function permission_role(){
+        return $this->hasMany('App\Models\ManagementAccess\PermissionRole', 'role_id');
+    }
 }

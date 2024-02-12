@@ -17,13 +17,21 @@ class RoleUser extends Model
         'created_at',
         'updated_at',
         'deleted_at',
-    ]
+    ];
 
-    protected $filllable = [
+    protected $fillable = [
         'role_id',
         'user_id',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
+
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+    }
+
+    public function role(){
+        return $this->belongsTo('App\ManagementAccess\Role', 'role_id', 'id');
+    }
 }

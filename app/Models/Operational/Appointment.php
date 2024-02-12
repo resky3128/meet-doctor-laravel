@@ -17,9 +17,9 @@ class Appointment extends Model
         'created_at',
         'updated_at',
         'deleted_at',
-    ]
+    ];
 
-    protected $filllable = [
+    protected $fillable = [
         'doctor_id',
         'user_id',
         'consultation_id',
@@ -31,4 +31,20 @@ class Appointment extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function doctor(){
+        return $this->belongsTo('App\Models\Operational\Doctor', 'doctor_id', 'id');
+    }
+
+    public function consultation(){
+        return $this->belongsTo('App\Models\MasterData\Consultation', 'consultation_id', 'id');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+    }
+
+    public function transaction(){
+        return $this->hasMany('App\Models\Operational\Appointment', 'user_id');
+    }
 }
